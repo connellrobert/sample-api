@@ -56,5 +56,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: "${{secrets.GITHUB_TOKEN}}"
-          tag: latest
+          tag: "${{github.ref_name}}"
           artifacts: helm.zip
