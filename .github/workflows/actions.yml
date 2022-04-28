@@ -46,6 +46,8 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: test-dir
+        run: ls
       - name: bundle-create-release
         uses: softprops/action-gh-release@v1
         with:
@@ -53,10 +55,5 @@ jobs:
           tag_name: latest
           draft: true
           files: |
-            helm/*.yaml
-            helm/*.yml
-            helm/**/*.yaml
-            helm/**/*.yml
-            helm/**/*.tpl
-            helm/**/*.txt
+            helm/**
           prerelease: false
