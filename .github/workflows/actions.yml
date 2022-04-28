@@ -1,9 +1,10 @@
 
-name: publish container
+name: Publish container and helm chart
 
 on:
   push:
-    branches: ['main']
+    tags:
+      - '*'
 
 env:
   REGISTRY: ghcr.io
@@ -15,6 +16,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+    
 
     steps:
       - name: Checkout repository
@@ -55,5 +57,4 @@ jobs:
         with:
           token: "${{secrets.GITHUB_TOKEN}}"
           tag: latest
-          draft: true
           artifacts: helm.zip
