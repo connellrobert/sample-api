@@ -53,5 +53,5 @@ jobs:
           tag_name: latest
           draft: true
           files: |
-            helm/**
+            helm
           prerelease: false
