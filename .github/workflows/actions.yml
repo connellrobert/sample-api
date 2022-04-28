@@ -46,14 +46,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: test-dir
-        run: ls
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: bundle release
+        run: zip helm.zip helm/*
       - name: bundle-create-release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         with:
           token: "${{secrets.GITHUB_TOKEN}}"
-          tag_name: latest
+          tag: latest
           draft: true
-          files: |
-            helm/**
-          prerelease: false
+          artifacts: helm.zip
