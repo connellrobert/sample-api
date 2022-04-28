@@ -43,12 +43,15 @@ jobs:
 
   create-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: bundle-create-release
-        uses: marvinpinto/action-automatic-releases@latest
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{secrets.GITHUB_TOKEN}}"
-          automatic_release_tag: latest
+          token: "${{secrets.GITHUB_TOKEN}}"
+          tag_name: latest
+          draft: true
           files: |
             helm/*
           prerelease: false
