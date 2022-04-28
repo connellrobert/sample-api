@@ -53,6 +53,10 @@ jobs:
           tag_name: latest
           draft: true
           files: |
-            helm/*.{yaml,yml}
-            helm/**/*.{yaml,yml,tpl,txt}
+            helm/*.yaml
+            helm/*.yml
+            helm/**/*.yaml
+            helm/**/*.yml
+            helm/**/*.tpl
+            helm/**/*.txt
           prerelease: false
